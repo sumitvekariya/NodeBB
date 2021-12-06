@@ -160,4 +160,13 @@ module.exports = function (User) {
 			]);
 		}, { batch: 1000 });
 	};
+
+	User.setNumberOfLogins = async function (uid) {
+		if (!(parseInt(uid, 10) > 0)) {
+			return;
+		}
+		const userData = await db.getObjectFields(`user:${uid}`, ['numberOfLogins']);
+		const numberOfLogins = userData?.numberOfLogins ? (+userData?.numberOfLogins + 1) : 1;
+		await User.setUserField(uid, 'numberOfLogins', numberOfLogins);
+	};
 };

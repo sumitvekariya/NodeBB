@@ -116,6 +116,10 @@ UserObject:
     followingCount:
       type: number
       example: 5
+    
+    numberOfLogins:
+      type: number
+      example: 0
     'cover:url':
       type: string
       example: /assets/profile/1-cover.png
@@ -181,6 +185,7 @@ UserObject:
     - flags
     - followerCount
     - followingCount
+    - numberOfLogins
     - 'cover:url'
     - 'cover:position'
     - groupTitle
@@ -306,6 +311,9 @@ UserObjectFull:
     followingCount:
       type: number
       example: 5
+    numberOfLogins:
+      type: number
+      example: 0
     'cover:url':
       type: string
       example: /assets/profile/1-cover.png

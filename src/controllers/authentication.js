@@ -394,6 +394,7 @@ authenticationController.onSuccessfulLogin = async function (req, uid) {
 			user.auth.addSession(uid, req.sessionID),
 			user.updateLastOnlineTime(uid),
 			user.updateOnlineUsers(uid),
+			user.setNumberOfLogins(uid),
 			analytics.increment('logins'),
 			db.incrObjectFieldBy('global', 'loginCount', 1),
 		]);

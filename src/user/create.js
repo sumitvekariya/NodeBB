@@ -15,6 +15,7 @@ module.exports = function (User) {
 	User.create = async function (data) {
 		data.username = data.username.trim();
 		data.userslug = slugify(data.username);
+		data.numberOfLogins = 1;
 		if (data.email !== undefined) {
 			data.email = String(data.email).trim();
 		}
